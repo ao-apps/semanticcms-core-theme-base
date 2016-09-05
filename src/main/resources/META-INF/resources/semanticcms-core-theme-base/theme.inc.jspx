@@ -1,0 +1,93 @@
+<!--
+semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
+Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+	support@aoindustries.com
+	7262 Bull Pen Cir
+	Mobile, AL 36695
+
+This file is part of semanticcms-core-theme-base.
+
+semanticcms-core-theme-base is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+semanticcms-core-theme-base is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!--
+An absolutely minimal base theme, meets the technical requirements but offers
+nothing in the way of navigation or style.
+
+Arguments:
+	arg.view  The current view that should be displayed.
+	arg.page  The page that should be displayed.
+-->
+<jsp:root
+	xmlns:ao="http://aoindustries.com/ao-taglib"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
+	version="2.1"
+>
+	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<c:set var="page" value="${arg.page}" />
+	<ao:html doctype="html5">
+		<c:set var="view" value="${arg.view}" />
+		<c:set var="pageRef" value="${page.pageRef}" />
+		<head>
+			<ao:meta charset="${pageContext.response.characterEncoding}" />
+			<ao:meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+			<!-- Mobile support -->
+			<ao:meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<ao:meta name="apple-mobile-web-app-capable" content="yes" />
+			<ao:meta name="apple-mobile-web-app-status-bar-style" content="black" />
+			<!-- Authors -->
+			<ao:include page="copyright.inc.jspx" arg.copyright="${p:getViewCopyright(view, page)}" />
+			<ao:include page="authors.inc.jspx" arg.authors="${p:getViewAuthors(view, page)}" />
+			<title><ao:out value="${p:getViewTitle(view, page)}" /></title>
+			<c:set var="description" value="${view.getDescription(page)}" />
+			<c:if test="${!empty description}">
+				<ao:meta name="description" content="${description}" />
+			</c:if>
+			<c:set var="keywords" value="${view.getKeywords(page)}" />
+			<c:if test="${!empty keywords}">
+				<ao:meta name="keywords" content="${keywords}" />
+			</c:if>
+			<jsp:text>&lt;!--[if lt IE 9]&gt;</jsp:text>
+				<ao:script src="/webjars/html5shiv/3.7.3/html5shiv.min.js" />
+			<jsp:text>&lt;![endif]--&gt;</jsp:text>
+			<ao:link href="styles/html5.css" rel="stylesheet" type="text/css" />
+			<!-- Application-wide CSS -->
+			<c:forEach var="cssLink" items="${applicationScope.semanticCMS.cssLinks}">
+				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
+			</c:forEach>
+			<!-- Per-view CSS -->
+			<c:forEach var="cssLink" items="${view.cssLinks}">
+				<ao:link href="${cssLink}" rel="stylesheet" type="text/css" />
+			</c:forEach>
+			<!-- Application-wide scripts merged with view-specific scripts -->
+			<c:forEach var="script" items="${p:mergeGlobalAndViewScripts(view)}">
+				<ao:script src="${script.value}" />
+			</c:forEach>
+			<!-- Application-wide head includes -->
+			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
+				<ao:include page="${headInclude}" />
+			</c:forEach>
+			<c:if test="${!view.getAllowRobots(page)}">
+				<ao:meta name="robots" content="noindex, nofollow" />
+			</c:if>
+		</head>
+		<body>
+			<main>
+				<p:doView view="${view}" page="${page}" />
+			</main>
+		</body>
+	</ao:html>
+</jsp:root>
