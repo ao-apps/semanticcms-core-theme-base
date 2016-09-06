@@ -80,7 +80,7 @@ Arguments:
 			<c:forEach var="headInclude" items="${applicationScope.semanticCMS.headIncludes}">
 				<ao:include page="${headInclude}" />
 			</c:forEach>
-			<c:if test="${!view.getAllowRobots(page)}">
+			<c:if test="${!p:getViewAllowRobots(view, page)}">
 				<ao:meta name="robots" content="noindex, nofollow" />
 			</c:if>
 		</head>
