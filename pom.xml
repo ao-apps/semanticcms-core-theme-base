@@ -32,7 +32,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 
 	<groupId>com.semanticcms</groupId>
 	<artifactId>semanticcms-core-theme-base</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>SemanticCMS Core Theme Base</name>
@@ -43,7 +43,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-core-theme-base.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-core-theme-base.git</developerConnection>
 		<url>http://github.com/aoindustries/semanticcms-core-theme-base</url>
-		<tag>semanticcms-core-theme-base-1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
