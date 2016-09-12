@@ -38,6 +38,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 	<name>SemanticCMS Core Theme Base</name>
 	<url>https://semanticcms.com/core/theme-base/</url>
 	<description>Base SemanticCMS theme to simplify the implementation of other themes.</description>
+	<inceptionYear>2013</inceptionYear>
 
 	<scm>
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-core-theme-base.git</connection>
