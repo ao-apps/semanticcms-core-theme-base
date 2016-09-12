@@ -30,8 +30,8 @@ Arguments:
 <c:forEach
 	xmlns:ao="http://aoindustries.com/ao-taglib"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
 	var="author"
 	items="${arg.authors}"
 >
@@ -39,7 +39,7 @@ Arguments:
 	<jsp:output omit-xml-declaration="true" />
 	<!-- Capture any referenced page that is in an accessible book -->
 	<c:if test="${!empty author.page and !applicationScope.semanticCMS.missingBooks.contains(author.bookName)}">
-		<c:set var="capturedPage" value="${p:capturePageInBook(author.bookName, author.page, 'body')}" />
+		<c:set var="capturedPage" value="${core:capturePageInBook(author.bookName, author.page, 'body')}" />
 	</c:if>
 	<!-- meta author -->
 	<c:choose>
