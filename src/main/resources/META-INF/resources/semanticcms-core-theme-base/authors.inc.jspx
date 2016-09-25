@@ -42,28 +42,28 @@ Arguments:
 		<c:set var="capturedPage" value="${core:capturePageInBook(author.bookName, author.page, 'page')}" />
 	</c:if>
 	<!-- meta author -->
-	<c:choose>
-		<c:when test="${!empty author.name}">
+	<ao:choose>
+		<ao:when test="#{!empty author.name}">
 			<!-- Use provided name -->
 			<ao:meta name="author" content="${author.name}" />
-		</c:when>
-		<c:when test="${!empty capturedPage}">
+		</ao:when>
+		<ao:when test="#{!empty capturedPage}">
 			<!-- Used captured page -->
 			<ao:meta name="author" content="${capturedPage.title}" />
-		</c:when>
-		<c:otherwise>
-			<jsp:scriptlet>if(true) throw new AssertionError("author.name not provided and no page captured");</jsp:scriptlet>
-		</c:otherwise>
-	</c:choose>
+		</ao:when>
+		<ao:otherwise>
+			<ao:assert test="false" message="author.name not provided and no page captured" />
+		</ao:otherwise>
+	</ao:choose>
 	<!-- link author -->
-	<c:choose>
-		<c:when test="${!empty author.href}">
+	<ao:choose>
+		<ao:when test="#{!empty author.href}">
 			<!-- Use provided href -->
 			<ao:link rel="author" href="${author.href}" />
-		</c:when>
-		<c:when test="${!empty capturedPage}">
+		</ao:when>
+		<ao:when test="#{!empty capturedPage}">
 			<!-- Link to captured page -->
 			<ao:link rel="author" href="${capturedPage.pageRef.servletPath}" />
-		</c:when>
-	</c:choose>
+		</ao:when>
+	</ao:choose>
 </c:forEach>
