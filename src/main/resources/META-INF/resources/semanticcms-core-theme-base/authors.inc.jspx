@@ -35,7 +35,7 @@ Arguments:
 	var="author"
 	items="${arg.authors}"
 >
-	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
+	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<jsp:output omit-xml-declaration="true" />
 	<!-- Capture any referenced page that is in an accessible book -->
 	<c:if test="${!empty author.page and !applicationScope.semanticCMS.missingBooks.contains(author.bookName)}">
