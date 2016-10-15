@@ -4,7 +4,7 @@ Base [SemanticCMS](https://semanticcms.com/) theme to simplify the implementatio
 ## Project Links
 * [Project Home](https://semanticcms.com/core/theme-base/)
 * [API Docs](https://semanticcms.com/core/theme-base/apidocs/)
-* [Maven Central Repository](http://search.maven.org/#search|gav|1|g:%22com.semanticcms%22%20AND%20a:%22semanticcms-core-theme-base%22)
+* [Maven Central Repository](https://search.maven.org/#search|gav|1|g:%22com.semanticcms%22%20AND%20a:%22semanticcms-core-theme-base%22)
 * [GitHub](https://github.com/aoindustries/semanticcms-core-theme-base)
 
 ## Contact Us
