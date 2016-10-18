@@ -85,9 +85,11 @@ Arguments:
 			</c:if>
 		</head>
 		<body>
+			<core:doComponents view="${view}" page="${page}" position="BODY_START" />
 			<main>
 				<core:doView view="${view}" page="${page}" />
 			</main>
+			<core:doComponents view="${view}" page="${page}" position="BODY_END" reverse="true" />
 		</body>
 	</ao:html>
 </jsp:root>
