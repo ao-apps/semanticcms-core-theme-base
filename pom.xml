@@ -36,13 +36,12 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 	<packaging>jar</packaging>
 
 	<properties>
-		<bookPath>/core/theme-base</bookPath>
 		<shortTitle>Theme Base</shortTitle>
 		<description.html><![CDATA[Base <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> theme to simplify the implementation of other themes.]]></description.html>
 	</properties>
 
 	<name>SemanticCMS Core Theme Base</name>
-	<url>https://semanticcms.com${bookPath}/</url><!-- Can't inherit due to multi-module -->
+	<url>https://semanticcms.com/core/theme-base/</url>
 	<description>Base SemanticCMS theme to simplify the implementation of other themes.</description>
 	<inceptionYear>2013</inceptionYear>
 
