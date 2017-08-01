@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
-Copyright (C) 2016  AO Industries, Inc.
+Copyright (C) 2016, 2017  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -39,8 +39,8 @@ Arguments:
 	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<jsp:output omit-xml-declaration="true" />
 	<!-- Capture any referenced page that is in an accessible book -->
-	<c:if test="${!empty author.page and !applicationScope.semanticCMS.missingBooks.contains(author.bookName)}">
-		<c:set var="capturedPage" value="${core:capturePageInBook(author.bookName, author.page, 'page')}" />
+	<c:if test="${!empty author.page and applicationScope.semanticCMS.getBook(author.domain, author.book).accessible}">
+		<c:set var="capturedPage" value="${core:capturePageInDomain(author.domain, author.book, author.page, 'page')}" />
 	</c:if>
 	<!-- meta author -->
 	<ao:choose>
@@ -66,5 +66,6 @@ Arguments:
 			<!-- Link to captured page -->
 			<ao:link rel="author" href="${capturedPage.pageRef.servletPath}" />
 		</ao:when>
+		<!-- TODO: support optional base of missing books -->
 	</ao:choose>
 </c:forEach>
