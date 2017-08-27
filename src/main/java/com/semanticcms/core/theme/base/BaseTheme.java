@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
- * Copyright (C) 2016  AO Industries, Inc.
+ * Copyright (C) 2016, 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -24,9 +24,9 @@ package com.semanticcms.core.theme.base;
 
 import com.aoindustries.servlet.http.Dispatcher;
 import com.semanticcms.core.model.Page;
-import com.semanticcms.core.servlet.SemanticCMS;
-import com.semanticcms.core.servlet.Theme;
-import com.semanticcms.core.servlet.View;
+import com.semanticcms.core.renderer.html.HtmlRenderer;
+import com.semanticcms.core.renderer.html.Theme;
+import com.semanticcms.core.renderer.html.View;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -42,7 +42,7 @@ import javax.servlet.jsp.SkipPageException;
  */
 public class BaseTheme extends Theme {
 
-	static final String THEME_NAME = SemanticCMS.DEFAULT_THEME_NAME;
+	static final String THEME_NAME = HtmlRenderer.DEFAULT_THEME_NAME;
 
 	private static final String JSPX_TARGET = "/semanticcms-core-theme-base/theme.inc.jspx";
 
