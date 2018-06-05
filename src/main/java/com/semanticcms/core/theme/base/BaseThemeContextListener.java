@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
- * Copyright (C) 2016, 2017  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,17 +22,51 @@
  */
 package com.semanticcms.core.theme.base;
 
+import com.aoindustries.net.Path;
+import com.semanticcms.core.controller.SemanticCMS;
+import com.semanticcms.core.controller.ServletSpace;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
+import java.io.IOException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@WebListener("Registers the \"" + BaseTheme.THEME_NAME + "\" theme in HtmlRenderer.")
+@WebListener("Registers the \"" + BaseTheme.THEME_NAME + "\" theme in HtmlRenderer and SemanticCMS.")
 public class BaseThemeContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		HtmlRenderer.getInstance(event.getServletContext()).addTheme(new BaseTheme());
+		ServletContext servletContext = event.getServletContext();
+		HtmlRenderer.getInstance(servletContext).addTheme(new BaseTheme());
+		// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
+		// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
+		SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
+		semanticCMS.addServletSpace(
+			new ServletSpace(
+				ServletSpace.Prefix.valueOf(BaseTheme.PREFIX + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				ServletSpace.Action.NotFoundAction.getInstance()
+			)
+		);
+		semanticCMS.addServletSpace(
+			new ServletSpace(
+				ServletSpace.Prefix.valueOf(BaseTheme.PREFIX + "/styles" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				// TODO: *.css matcher overkill?
+				new ServletSpace.Matcher() {
+					@Override
+					public ServletSpace.Action findAction(HttpServletRequest request, HttpServletResponse response, SemanticCMS semanticCMS, String servletPath, ServletSpace.Prefix prefix, Path servletSpace, Path pathInSpace) throws IOException, ServletException {
+						if(pathInSpace.toString().endsWith(".css")) {
+							return ServletSpace.Action.PassThroughAction.getInstance();
+						} else {
+							return null;
+						}
+					}
+				}
+			)
+		);
 	}
 
 	@Override
