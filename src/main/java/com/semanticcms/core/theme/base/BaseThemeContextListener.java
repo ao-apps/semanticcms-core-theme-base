@@ -23,6 +23,7 @@
 package com.semanticcms.core.theme.base;
 
 import com.aoindustries.net.Path;
+import com.aoindustries.net.pathspace.Prefix;
 import com.semanticcms.core.controller.SemanticCMS;
 import com.semanticcms.core.controller.ServletSpace;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
@@ -47,17 +48,17 @@ public class BaseThemeContextListener implements ServletContextListener {
 		SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(BaseTheme.PREFIX + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(BaseTheme.PREFIX + Prefix.WILDCARD_SUFFIX),
 				ServletSpace.Action.NotFoundAction.getInstance()
 			)
 		);
 		semanticCMS.addServletSpace(
 			new ServletSpace(
-				ServletSpace.Prefix.valueOf(BaseTheme.PREFIX + "/styles" + ServletSpace.Prefix.BOUNDED_MULTILEVEL),
+				Prefix.valueOf(BaseTheme.PREFIX + "/styles" + Prefix.WILDCARD_SUFFIX),
 				// TODO: *.css matcher overkill?
 				new ServletSpace.Matcher() {
 					@Override
-					public ServletSpace.Action findAction(HttpServletRequest request, HttpServletResponse response, SemanticCMS semanticCMS, String servletPath, ServletSpace.Prefix prefix, Path servletSpace, Path pathInSpace) throws IOException, ServletException {
+					public ServletSpace.Action findAction(HttpServletRequest request, HttpServletResponse response, SemanticCMS semanticCMS, String servletPath, Prefix prefix, Path servletSpace, Path pathInSpace) throws IOException, ServletException {
 						if(pathInSpace.toString().endsWith(".css")) {
 							return ServletSpace.Action.PassThroughAction.getInstance();
 						} else {
