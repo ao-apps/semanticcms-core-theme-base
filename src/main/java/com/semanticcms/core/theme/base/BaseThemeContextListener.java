@@ -24,17 +24,15 @@ package com.semanticcms.core.theme.base;
 
 import com.aoindustries.net.Path;
 import com.aoindustries.net.pathspace.Prefix;
-import com.semanticcms.core.controller.SemanticCMS;
-import com.semanticcms.core.controller.ServletSpace;
+import com.aoindustries.servlet.firewall.pathspace.FirewallComponent;
+import com.aoindustries.servlet.firewall.pathspace.FirewallPathSpace;
+import static com.aoindustries.servlet.firewall.pathspace.Rules.*;
+import static com.aoindustries.servlet.firewall.rules.Rules.*;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
-import java.io.IOException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @WebListener("Registers the \"" + BaseTheme.THEME_NAME + "\" theme in HtmlRenderer and SemanticCMS.")
 public class BaseThemeContextListener implements ServletContextListener {
@@ -45,27 +43,40 @@ public class BaseThemeContextListener implements ServletContextListener {
 		HtmlRenderer.getInstance(servletContext).addTheme(new BaseTheme());
 		// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 		// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
-		SemanticCMS semanticCMS = SemanticCMS.getInstance(servletContext);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
+		FirewallPathSpace.getFirewallPathSpace(servletContext).add(
+			FirewallComponent.newInstance(
 				Prefix.valueOf(BaseTheme.PREFIX + Prefix.WILDCARD_SUFFIX),
-				ServletSpace.Action.NotFoundAction.getInstance()
-			)
-		);
-		semanticCMS.addServletSpace(
-			new ServletSpace(
-				Prefix.valueOf(BaseTheme.PREFIX + "/styles" + Prefix.WILDCARD_SUFFIX),
-				// TODO: *.css matcher overkill?
-				new ServletSpace.Matcher() {
-					@Override
-					public ServletSpace.Action findAction(HttpServletRequest request, HttpServletResponse response, SemanticCMS semanticCMS, String servletPath, Prefix prefix, Path servletSpace, Path pathInSpace) throws IOException, ServletException {
-						if(pathInSpace.toString().endsWith(".css")) {
-							return ServletSpace.Action.PassThroughAction.getInstance();
-						} else {
-							return null;
-						}
-					}
-				}
+				// Block direct access via request
+				request.dispatcherType.isRequest(response.sendError.NOT_FOUND),
+				// Only allow *.inc.jsp via include
+				and(
+					request.dispatcherType.isInclude,
+					pathMatch.path.endsWith(".inc.jsp"),
+					chain.doFilter
+				),
+				// TODO: Drop everything else, all other dispatchers?
+				response.sendError.FORBIDDEN // TODO: Use message overload
+			),
+			// TODO: method, dispatcher, and stuff like in Documents/TODO/ao-servlet-firewall.xml
+			// TODO: Support per servlet-space "policy", which will be the rules applied when no rules match
+			// TODO: Support per servlet-space "pre" rules?
+			// TODO: Support dynamic addition of rules to servlet-space?
+			FirewallComponent.newInstance(
+				Prefix.valueOf(BaseTheme.PREFIX + Path.SEPARATOR_CHAR + "styles" + Prefix.WILDCARD_SUFFIX),
+				request.dispatcherType.isRequest(
+					// TODO: *.css matching is overkill here, but this is just testing programming style
+					pathMatch.path.endsWith(".css",
+						// TODO: To be most technically correct, should we return 404 before this 405 when the resource does not exist?  Make a rule to check if exists?
+						// TODO: Would it be worth the overhead?
+						request.method.constrain(request.method.GET),
+						// TODO: restrict parameters for canonicalization? (this is overkill, but just testing how can use rules)
+						chain.doFilter // TODO: Dispatch to LastModified servlet here instead of relying on applications to have registered it?
+					),
+					// 404 everything else on "REQUEST" dispatcher
+					response.sendError.NOT_FOUND
+				),
+				// TODO: Drop everything else, all other dispatchers?
+				response.sendError.FORBIDDEN // TODO: Use message overload
 			)
 		);
 	}
