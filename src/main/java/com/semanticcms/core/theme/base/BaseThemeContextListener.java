@@ -54,6 +54,13 @@ public class BaseThemeContextListener implements ServletContextListener {
 					pathMatch.path.endsWith(".inc.jsp"),
 					chain.doFilter
 				),
+				// *.jspx as forward only, but not including *.inc.jspx
+				request.dispatcherType.isForward(
+					pathMatch.path.endsWith(".jspx",
+						pathMatch.path.endsWith(".inc.jspx", response.sendError.FORBIDDEN),
+						chain.doFilter
+					)
+				),
 				// TODO: Drop everything else, all other dispatchers?
 				response.sendError.FORBIDDEN // TODO: Use message overload
 			),

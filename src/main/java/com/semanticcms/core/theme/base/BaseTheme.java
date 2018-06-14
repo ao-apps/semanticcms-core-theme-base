@@ -46,7 +46,7 @@ public class BaseTheme extends Theme {
 
 	static final String PREFIX = "/semanticcms-core-theme-base";
 
-	private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
+	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
 	@Override
 	public String getDisplay() {
