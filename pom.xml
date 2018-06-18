@@ -65,6 +65,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 								<links>
 									<link>${javac.link.javaApi}</link>
 									<link>${javac.link.javaeeApi.6}</link>
+									<link>https://aoindustries.com/ao-servlet-firewall/webjars/apidocs/</link>
 									<link>https://aoindustries.com/ao-net-path-space/apidocs/</link>
 									<link>https://aoindustries.com/ao-servlet-firewall/path-space/apidocs/</link>
 									<link>https://aoindustries.com/ao-servlet-firewall/rules/apidocs/</link>
@@ -108,6 +109,10 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 					<groupId>javax.servlet.jsp.jstl</groupId><artifactId>jstl-api</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<!-- Open servlet firewall for /webjars/*** -->
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-webjars</artifactId><version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId><artifactId>html5shiv</artifactId><version>3.7.3-1</version>
