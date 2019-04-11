@@ -1,4 +1,4 @@
-# [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://aoindustries.com/) [SemanticCMS](https://semanticcms.com/) / [Core](https://semanticcms.com/core/) / [Theme Base](https://semanticcms.com/core/theme-base/)
+# [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://github.com/aoindustries) [SemanticCMS](https://github.com/aoindustries/semanticcms) / [Core](https://github.com/aoindustries/semanticcms-core) / [Theme Base](https://github.com/aoindustries/semanticcms-core-theme-base)
 <p>
 	<a href="https://aoindustries.com/life-cycle#project-current-stable">
 		<img src="https://semanticcms.com/ao-badges/project-current-stable.svg" alt="project: current stable" />
@@ -24,7 +24,7 @@
 	</a>
 </p>
 
-Base [SemanticCMS](https://semanticcms.com/) theme to simplify the implementation of other themes.
+Base [SemanticCMS](https://github.com/aoindustries/semanticcms) theme to simplify the implementation of other themes.
 
 ## Project Links
 * [Project Home](https://semanticcms.com/core/theme-base/)
