@@ -29,7 +29,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.2.3-SNAPSHOT</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.2.3-validation-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -108,19 +108,19 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 			<groupId>org.webjars</groupId><artifactId>html5shiv</artifactId><version>3.7.3</version>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>2.3.1</version>
+			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>1.9.0</version>
+			<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>1.10.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.8.2</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.8.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.11.0</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.12.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.9.0</version>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.9.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
