@@ -37,7 +37,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		<documented.groupId>com.semanticcms</documented.groupId><documented.artifactId>semanticcms-core-theme-base</documented.artifactId>
 		<documented.javaVersion>1.7</documented.javaVersion>
 		<documented.javac.link.javaApi>${javac.link.javaApi.jdk7}</documented.javac.link.javaApi>
-		<documented.name>SemanticCMS 1 Core Theme Base</documented.name>
+		<documented.name>SemanticCMS Core Theme Base</documented.name>
 		<documented.shortTitle>Theme Base</documented.shortTitle>
 		<documented.url>https://semanticcms.com/core/theme-base/</documented.url>
 		<documented.description>Base SemanticCMS theme to simplify the implementation of other themes.</documented.description>
