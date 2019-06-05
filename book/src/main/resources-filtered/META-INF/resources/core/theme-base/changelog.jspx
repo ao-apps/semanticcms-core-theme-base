@@ -37,7 +37,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T20:51:31-0500"
-		dateModified="2017-07-31T16:16:05-0500"
+		dateModified="2019-06-04T02:00:11-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-core-theme-base:pom.version}" />
@@ -55,6 +55,13 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 			>
 				<ul>
 					<li>Updated for <core:link book="/" page="/" /> 2 compatibility.</li>
+					<li>Minimum Java version changed from 1.6 to 1.7.</li>
+					<li>Using managed dependencies:
+						<ol>
+							<li>This project uses transitive managed dependencies.</li>
+							<li>This project's managed dependencies may also be imported by other projects.</li>
+						</ol>
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
