@@ -37,7 +37,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T20:51:31-0500"
-		dateModified="2019-06-12T03:09:29-0500"
+		dateModified="2019-06-12T23:12:31-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-core-theme-base:pom.version}" />
@@ -63,6 +63,10 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 						</ol>
 					</li>
 					<li>Now supporting media="print" stylesheets.</li>
+					<li>
+						Using jQuery in <ao:a href="https://api.jquery.com/jquery.noconflict/">jQuery.noConflict()</ao:a> mode.
+						This should minimize potential interference from unrelated JS libraries.
+					</li>
 				</ul>
 			</changelog:release>
 		</c:if>
