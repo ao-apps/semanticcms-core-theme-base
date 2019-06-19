@@ -90,7 +90,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 			</dependency>
 			<!-- Direct -->
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-validation-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>2.1.0-validation-SNAPSHOT</version>
