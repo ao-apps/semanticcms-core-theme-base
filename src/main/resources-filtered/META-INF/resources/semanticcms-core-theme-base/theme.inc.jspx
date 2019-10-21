@@ -40,7 +40,7 @@ Arguments:
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" session="false" />
 	<c:set var="page" value="${arg.page}" />
-	<ao:html doctype="html5">
+	<ao:html>
 		<c:set var="view" value="${arg.view}" />
 		<c:set var="pageRef" value="${page.pageRef}" />
 		<head>
