@@ -66,7 +66,7 @@ public class BaseTheme extends Theme {
 			HtmlRenderer.getInstance(servletContext).addTheme(new BaseTheme());
 			// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 			// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
-			FirewallPathSpace.getFirewallPathSpace(servletContext).add(
+			FirewallPathSpace.getInstance(servletContext).add(
 				FirewallComponent.newInstance(
 					Prefix.valueOf(PREFIX + Prefix.WILDCARD_SUFFIX),
 					// Block direct access via request
