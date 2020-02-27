@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
- * Copyright (C) 2016, 2017, 2018, 2019  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -31,7 +31,10 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.SkipPageException;
@@ -42,9 +45,23 @@ import javax.servlet.jsp.SkipPageException;
  */
 public class BaseTheme extends Theme {
 
-	static final String THEME_NAME = SemanticCMS.DEFAULT_THEME_NAME;
+	private static final String NAME = SemanticCMS.DEFAULT_THEME_NAME;
 
 	private static final String JSPX_TARGET = "/semanticcms-core-theme-base/theme.inc.jspx";
+
+	@WebListener("Registers the \"" + NAME + "\" theme in SemanticCMS.")
+	public static class Initializer implements ServletContextListener {
+		@Override
+		public void contextInitialized(ServletContextEvent event) {
+			SemanticCMS.getInstance(event.getServletContext()).addTheme(new BaseTheme());
+		}
+		@Override
+		public void contextDestroyed(ServletContextEvent event) {
+			// Do nothing
+		}
+	}
+
+	private BaseTheme() {}
 
 	@Override
 	public String getDisplay() {
@@ -53,7 +70,7 @@ public class BaseTheme extends Theme {
 
 	@Override
 	public String getName() {
-		return THEME_NAME;
+		return NAME;
 	}
 
 	@Override
