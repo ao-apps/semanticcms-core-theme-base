@@ -29,8 +29,6 @@ import com.aoindustries.servlet.firewall.pathspace.FirewallPathSpace;
 import static com.aoindustries.servlet.firewall.pathspace.Rules.*;
 import static com.aoindustries.servlet.firewall.rules.Rules.*;
 import com.aoindustries.servlet.http.Dispatcher;
-import com.aoindustries.web.resources.registry.Style;
-import com.aoindustries.web.resources.servlet.RegistryEE;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
 import com.semanticcms.core.renderer.html.Theme;
@@ -55,29 +53,19 @@ public class BaseTheme extends Theme {
 
 	private static final String NAME = HtmlRenderer.DEFAULT_THEME_NAME;
 
-	/**
-	 * The name of the {@link Group} of web resources for the base theme.
-	 */
-	public static final String STYLE_GROUP = "semanticcms-core-theme-base";
-
 	private static final String PREFIX = "/semanticcms-core-theme-base";
-
-	// TODO: Set to "prelude" group / set
-	// TODO: Move to ao-style as global
-	public static final Style HTML5 = new Style(PREFIX + "/styles/html5.css");
 
 	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
-	@WebListener("Registers the \"" + NAME + "\" theme in RegistryEE and HtmlRenderer.")
+	@WebListener("Registers the \"" + NAME + "\" theme in HtmlRenderer.")
 	public static class Initializer implements ServletContextListener {
 
 		@Override
 		public void contextInitialized(ServletContextEvent event) {
 			ServletContext servletContext = event.getServletContext();
 
-			RegistryEE.get(servletContext).getGroup(STYLE_GROUP).styles.add(HTML5);
-
 			HtmlRenderer.getInstance(servletContext).addTheme(new BaseTheme());
+
 			// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
 			// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
 			FirewallPathSpace.getInstance(servletContext).add(
