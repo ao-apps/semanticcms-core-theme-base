@@ -23,6 +23,9 @@
 package com.semanticcms.core.theme.base;
 
 import com.aoindustries.servlet.http.Dispatcher;
+import com.aoindustries.web.resources.registry.Style;
+import com.aoindustries.web.resources.registry.Styles;
+import com.aoindustries.web.resources.servlet.RegistryEE;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.Theme;
@@ -47,13 +50,22 @@ public class BaseTheme extends Theme {
 
 	private static final String NAME = SemanticCMS.DEFAULT_THEME_NAME;
 
+	// TODO: Set to "prelude" group / set
+	public static final Style HTML5 = new Style("/semanticcms-core-theme-base/styles/html5.css");
+
 	private static final String JSPX_TARGET = "/semanticcms-core-theme-base/theme.inc.jspx";
 
-	@WebListener("Registers the \"" + NAME + "\" theme in SemanticCMS.")
+	@WebListener("Registers the \"" + NAME + "\" theme in RegistryEE and SemanticCMS.")
 	public static class Initializer implements ServletContextListener {
 		@Override
 		public void contextInitialized(ServletContextEvent event) {
-			SemanticCMS.getInstance(event.getServletContext()).addTheme(new BaseTheme());
+			ServletContext servletContext = event.getServletContext();
+
+			// TODO: Add to a "semanticcms-core-theme-base" (or "semanticcms-theme") group, with an "include" of global?
+			Styles styles = RegistryEE.get(servletContext).global.styles;
+			styles.add(HTML5);
+
+			SemanticCMS.getInstance(servletContext).addTheme(new BaseTheme());
 		}
 		@Override
 		public void contextDestroyed(ServletContextEvent event) {
