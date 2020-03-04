@@ -37,7 +37,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-30T20:51:31-0500"
-		dateModified="2020-02-26T20:09:57-0600"
+		dateModified="2020-03-04T03:14:31-0600"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.semanticcms:semanticcms-core-theme-base:pom.version}" />
@@ -60,6 +60,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 						This should eliminate validator warnings when used as HTML.
 					</li>
 					<li>Optimized ServletContext attribute initialization and concurrency.</li>
+					<li>Integrated with <ao:a href="https://aoindustries.com/ao-web-resources/">AO Web Resources</ao:a>.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
