@@ -33,11 +33,11 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 	<packaging>bundle</packaging>
 
 	<properties>
-		<javadoc.breadcrumbs><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a>
-/ <a target="_top" href="https://semanticcms.com/core/">Core</a>
-/ <a target="_top" href="${project.url}">${shortTitle}</a>]]></javadoc.breadcrumbs>
+		<javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
+/ <a target="${javadoc.target}" href="https://semanticcms.com/core/">Core</a>
+/ <a target="${javadoc.target}" href="${project.url}">${shortTitle}</a>]]></javadoc.breadcrumbs>
 		<shortTitle>Theme Base</shortTitle>
-		<description.html><![CDATA[Base <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> theme to simplify the implementation of other themes.]]></description.html>
+		<description.html><![CDATA[Base <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme to simplify the implementation of other themes.]]></description.html>
 	</properties>
 
 	<name>SemanticCMS Core Theme Base²</name>
