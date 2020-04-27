@@ -77,7 +77,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 								<link>https://aoindustries.com/ao-servlet-firewall/rules/apidocs/</link>
 								<link>https://aoindustries.com/ao-servlet-util/apidocs/</link>
 								<link>https://semanticcms.com/core/model/apidocs/</link>
-								<link>https://semanticcms.com/core/renderer/html/apidocs/</link>
+								<!-- TODO: Once published: <link>https://semanticcms.com/core/renderer/html/apidocs/</link> -->
 							</links>
 						</configuration>
 					</plugin>
