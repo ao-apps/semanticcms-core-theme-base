@@ -64,6 +64,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 				<configuration>
 					<usedDependencies>
 						<!-- JSP Only -->
+						<dependency>com.aoindustries:ao-encoding-taglib</dependency>
 						<dependency>com.aoindustries:ao-taglib</dependency>
 						<dependency>com.aoindustries:ao-web-resources-taglib</dependency>
 						<dependency>javax.servlet:jstl</dependency>
@@ -90,6 +91,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 								<configuration>
 									<artifactItems>
 										<!-- Direct -->
+										<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId> -->
 										<artifactItem>
 											<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId>
 											<classifier>javadoc</classifier><includes>element-list, package-list</includes>
@@ -146,6 +148,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 						<configuration>
 							<offlineLinks>
 								<!-- Direct -->
+								<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId> -->
 								<offlineLink>
 									<url>https://aoindustries.com/ao-net-path-space/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoindustries/ao-net-path-space</location>
@@ -205,6 +208,9 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 	<dependencyManagement>
 		<dependencies>
 			<!-- Direct -->
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
@@ -339,6 +345,9 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 
 	<dependencies>
 		<!-- Direct -->
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-net-path-space</artifactId>
 		</dependency>
