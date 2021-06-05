@@ -22,16 +22,16 @@
  */
 package com.semanticcms.core.theme.base;
 
-import com.aoindustries.net.Path;
-import com.aoindustries.net.pathspace.Prefix;
-import com.aoindustries.servlet.firewall.pathspace.FirewallComponent;
-import com.aoindustries.servlet.firewall.pathspace.FirewallPathSpace;
-import com.aoindustries.servlet.firewall.pathspace.Rules.pathMatch;
-import static com.aoindustries.servlet.firewall.rules.Rules.and;
-import com.aoindustries.servlet.firewall.rules.Rules.chain;
-import com.aoindustries.servlet.firewall.rules.Rules.request;
-import com.aoindustries.servlet.firewall.rules.Rules.response;
-import com.aoindustries.servlet.http.Dispatcher;
+import com.aoapps.net.Path;
+import com.aoapps.net.pathspace.Prefix;
+import com.aoapps.servlet.firewall.pathspace.FirewallComponent;
+import com.aoapps.servlet.firewall.pathspace.FirewallPathSpace;
+import com.aoapps.servlet.firewall.pathspace.Rules.pathMatch;
+import static com.aoapps.servlet.firewall.rules.Rules.and;
+import com.aoapps.servlet.firewall.rules.Rules.chain;
+import com.aoapps.servlet.firewall.rules.Rules.request;
+import com.aoapps.servlet.firewall.rules.Rules.response;
+import com.aoapps.servlet.http.Dispatcher;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.renderer.html.HtmlRenderer;
 import com.semanticcms.core.renderer.html.Theme;
