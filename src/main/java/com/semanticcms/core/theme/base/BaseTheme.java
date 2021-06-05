@@ -22,7 +22,7 @@
  */
 package com.semanticcms.core.theme.base;
 
-import com.aoindustries.servlet.http.Dispatcher;
+import com.aoapps.servlet.http.Dispatcher;
 import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.Theme;
