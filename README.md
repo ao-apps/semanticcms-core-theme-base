@@ -10,6 +10,12 @@
 
 [![Build](https://github.com/aoindustries/semanticcms-core-theme-base/workflows/Build/badge.svg?branch=1.x)](https://github.com/aoindustries/semanticcms-core-theme-base/actions?query=workflow%3ABuild)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.semanticcms/semanticcms-core-theme-base/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.semanticcms/semanticcms-core-theme-base)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.semanticcms%3Asemanticcms-core-theme-base&metric=alert_status)](https://sonarcloud.io/dashboard?branch=1.x&id=com.semanticcms%3Asemanticcms-core-theme-base)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.semanticcms%3Asemanticcms-core-theme-base&metric=ncloc)](https://sonarcloud.io/component_measures?branch=1.x&id=com.semanticcms%3Asemanticcms-core-theme-base&metric=ncloc)  
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.semanticcms%3Asemanticcms-core-theme-base&metric=reliability_rating)](https://sonarcloud.io/component_measures?branch=1.x&id=com.semanticcms%3Asemanticcms-core-theme-base&metric=Reliability)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.semanticcms%3Asemanticcms-core-theme-base&metric=security_rating)](https://sonarcloud.io/component_measures?branch=1.x&id=com.semanticcms%3Asemanticcms-core-theme-base&metric=Security)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.semanticcms%3Asemanticcms-core-theme-base&metric=sqale_rating)](https://sonarcloud.io/component_measures?branch=1.x&id=com.semanticcms%3Asemanticcms-core-theme-base&metric=Maintainability)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.semanticcms%3Asemanticcms-core-theme-base&metric=coverage)](https://sonarcloud.io/component_measures?branch=1.x&id=com.semanticcms%3Asemanticcms-core-theme-base&metric=Coverage)
 
 Base [SemanticCMS](https://github.com/aoindustries/semanticcms) theme to simplify the implementation of other themes.
 
