@@ -29,7 +29,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.6.0</version>
+	<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.6.0-POST-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
 	<properties>
@@ -76,7 +76,7 @@ along with semanticcms-core-theme-base.  If not, see <http://www.gnu.org/license
 		<connection>scm:git:git://github.com/aoindustries/semanticcms-core-theme-base.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/semanticcms-core-theme-base.git</developerConnection>
 		<url>https://github.com/aoindustries/semanticcms-core-theme-base</url>
-		<tag>semanticcms-core-theme-base-1.6.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
