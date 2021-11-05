@@ -43,7 +43,7 @@ import javax.servlet.jsp.SkipPageException;
  * An absolutely minimal base theme, meets the technical requirements but offers
  * nothing in the way of navigation or style.
  */
-public class BaseTheme extends Theme {
+public final class BaseTheme extends Theme {
 
 	private static final String NAME = SemanticCMS.DEFAULT_THEME_NAME;
 
@@ -65,7 +65,9 @@ public class BaseTheme extends Theme {
 		}
 	}
 
-	private BaseTheme() {}
+	private BaseTheme() {
+		// Do nothing
+	}
 
 	@Override
 	public String getDisplay() {
