@@ -87,9 +87,15 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 	</issueManagement>
 
 	<ciManagement>
+		<system>Jenkins</system>
+		<url>https://jenkins.aoindustries.com/job/ao/job/semanticcms-1.x/job/core/job/theme-base/</url>
+	</ciManagement>
+	<!-- Only one allowed in POM:
+	<ciManagement>
 		<system>GitHub Actions</system>
 		<url>https://github.com/ao-apps/semanticcms-core-theme-base/actions</url>
 	</ciManagement>
+	-->
 
 	<repositories>
 		<!-- Repository required here, too, so can find parent -->
@@ -143,16 +149,16 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 								<configuration>
 									<artifactItems>
 										<!-- Direct -->
-										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId> -->
+										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
 										<artifactItem>
 											<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><classifier>javadoc</classifier>
 											<includes>element-list, package-list</includes>
 											<outputDirectory>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</outputDirectory>
 										</artifactItem>
-										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId> -->
-										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId> -->
-										<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
-										<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
+										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
+										<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier> -->
+										<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+										<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
 										<artifactItem>
 											<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><classifier>javadoc</classifier>
 											<includes>element-list, package-list</includes>
@@ -163,8 +169,8 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 											<includes>element-list, package-list</includes>
 											<outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-servlet</outputDirectory>
 										</artifactItem>
-										<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId> -->
-										<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
+										<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><classifier>javadoc</classifier> -->
+										<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId><classifier>javadoc</classifier> -->
 									</artifactItems>
 								</configuration>
 							</execution>
@@ -175,15 +181,15 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 						<configuration>
 							<offlineLinks combine.children="append">
 								<!-- Direct -->
-								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId> -->
+								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><classifier>javadoc</classifier> -->
 								<offlineLink>
 									<url>https://oss.aoapps.com/servlet-util/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.aoapps/ao-servlet-util</location>
 								</offlineLink>
-								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId> -->
-								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId> -->
-								<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
-								<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
+								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><classifier>javadoc</classifier> -->
+								<!-- JSP Only: <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><classifier>javadoc</classifier> -->
+								<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><classifier>javadoc</classifier> -->
+								<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><classifier>javadoc</classifier> -->
 								<offlineLink>
 									<url>https://semanticcms.com/core/model/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-model</location>
@@ -192,8 +198,8 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 									<url>https://semanticcms.com/core/servlet/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-servlet</location>
 								</offlineLink>
-								<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId> -->
-								<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
+								<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><classifier>javadoc</classifier> -->
+								<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId><classifier>javadoc</classifier> -->
 							</offlineLinks>
 						</configuration>
 					</plugin>
