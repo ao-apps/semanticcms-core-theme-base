@@ -46,57 +46,57 @@ import javax.servlet.jsp.SkipPageException;
  */
 public final class BaseTheme extends Theme {
 
-	private static final String NAME = SemanticCMS.DEFAULT_THEME_NAME;
+  private static final String NAME = SemanticCMS.DEFAULT_THEME_NAME;
 
-	private static final String PREFIX = "/semanticcms-core-theme-base";
+  private static final String PREFIX = "/semanticcms-core-theme-base";
 
-	private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
+  private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
 
-	@WebListener("Registers the \"" + NAME + "\" theme in SemanticCMS.")
-	public static class Initializer implements ServletContextListener {
+  @WebListener("Registers the \"" + NAME + "\" theme in SemanticCMS.")
+  public static class Initializer implements ServletContextListener {
 
-		@Override
-		public void contextInitialized(ServletContextEvent event) {
-			SemanticCMS.getInstance(event.getServletContext()).addTheme(new BaseTheme());
-		}
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+      SemanticCMS.getInstance(event.getServletContext()).addTheme(new BaseTheme());
+    }
 
-		@Override
-		public void contextDestroyed(ServletContextEvent event) {
-			// Do nothing
-		}
-	}
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+      // Do nothing
+    }
+  }
 
-	private BaseTheme() {
-		// Do nothing
-	}
+  private BaseTheme() {
+    // Do nothing
+  }
 
-	@Override
-	public String getDisplay() {
-		return "SemanticCMS Base";
-	}
+  @Override
+  public String getDisplay() {
+    return "SemanticCMS Base";
+  }
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
+  @Override
+  public String getName() {
+    return NAME;
+  }
 
-	@Override
-	public void doTheme(
-		ServletContext servletContext,
-		HttpServletRequest request,
-		HttpServletResponse response,
-		View view,
-		Page page
-	) throws ServletException, IOException, SkipPageException {
-		Map<String, Object> args = new LinkedHashMap<>();
-		args.put("view", view);
-		args.put("page", page);
-		Dispatcher.forward(
-			servletContext,
-			JSPX_TARGET,
-			request,
-			response,
-			args
-		);
-	}
+  @Override
+  public void doTheme(
+    ServletContext servletContext,
+    HttpServletRequest request,
+    HttpServletResponse response,
+    View view,
+    Page page
+  ) throws ServletException, IOException, SkipPageException {
+    Map<String, Object> args = new LinkedHashMap<>();
+    args.put("view", view);
+    args.put("page", page);
+    Dispatcher.forward(
+      servletContext,
+      JSPX_TARGET,
+      request,
+      response,
+      args
+    );
+  }
 }
