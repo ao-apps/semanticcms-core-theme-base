@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
-Copyright (C) 2016, 2017, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2016, 2017, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of semanticcms-core-theme-base.
 
@@ -26,47 +26,47 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 Writes the author(s) meta/link tags.
 
 Arguments:
-	arg.authors  The authors for the current view
+  arg.authors  The authors for the current view
 -->
 <c:forEach
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	var="author"
-	items="${arg.authors}"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  var="author"
+  items="${arg.authors}"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<jsp:output omit-xml-declaration="true" />
-	<!-- Capture any referenced page that is in an accessible book -->
-	<c:if test="${!empty author.page and applicationScope.semanticCMS.getBook(author.domain, author.book).accessible}">
-		<c:set var="capturedPage" value="${core:capturePageInDomain(author.domain, author.book, author.page, 'page')}" />
-	</c:if>
-	<!-- meta author -->
-	<ao:choose>
-		<ao:when test="#{!empty author.name}">
-			<!-- Use provided name -->
-			<ao:meta name="author" content="${author.name}" />
-		</ao:when>
-		<ao:when test="#{!empty capturedPage}">
-			<!-- Used captured page -->
-			<ao:meta name="author" content="${capturedPage.title}" />
-		</ao:when>
-		<ao:otherwise>
-			<ao:assert test="false" message="author.name not provided and no page captured" />
-		</ao:otherwise>
-	</ao:choose>
-	<!-- link author -->
-	<ao:choose>
-		<ao:when test="#{!empty author.href}">
-			<!-- Use provided href -->
-			<ao:link rel="author" href="${author.href}" />
-		</ao:when>
-		<ao:when test="#{!empty capturedPage}">
-			<!-- Link to captured page -->
-			<ao:link rel="author" href="${capturedPage.pageRef.servletPath}" />
-		</ao:when>
-		<!-- TODO: support optional base of missing books -->
-	</ao:choose>
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <jsp:output omit-xml-declaration="true" />
+  <!-- Capture any referenced page that is in an accessible book -->
+  <c:if test="${!empty author.page and applicationScope.semanticCMS.getBook(author.domain, author.book).accessible}">
+    <c:set var="capturedPage" value="${core:capturePageInDomain(author.domain, author.book, author.page, 'page')}" />
+  </c:if>
+  <!-- meta author -->
+  <ao:choose>
+    <ao:when test="#{!empty author.name}">
+      <!-- Use provided name -->
+      <ao:meta name="author" content="${author.name}" />
+    </ao:when>
+    <ao:when test="#{!empty capturedPage}">
+      <!-- Used captured page -->
+      <ao:meta name="author" content="${capturedPage.title}" />
+    </ao:when>
+    <ao:otherwise>
+      <ao:assert test="false" message="author.name not provided and no page captured" />
+    </ao:otherwise>
+  </ao:choose>
+  <!-- link author -->
+  <ao:choose>
+    <ao:when test="#{!empty author.href}">
+      <!-- Use provided href -->
+      <ao:link rel="author" href="${author.href}" />
+    </ao:when>
+    <ao:when test="#{!empty capturedPage}">
+      <!-- Link to captured page -->
+      <ao:link rel="author" href="${capturedPage.pageRef.servletPath}" />
+    </ao:when>
+    <!-- TODO: support optional base of missing books -->
+  </ao:choose>
 </c:forEach>

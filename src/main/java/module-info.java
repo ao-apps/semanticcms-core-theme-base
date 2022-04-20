@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
- * Copyright (C) 2021  AO Industries, Inc.
+ * Copyright (C) 2021, 2022  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -21,23 +21,23 @@
  * along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.core.theme.base {
-	exports com.semanticcms.core.theme.base;
-	// Direct
-	requires com.aoapps.encoding.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
-	requires com.aoapps.net.pathspace; // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
-	requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
-	requires com.aoapps.servlet.firewall.api; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
-	requires com.aoapps.servlet.firewall.pathspace; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
-	requires com.aoapps.servlet.firewall.rules; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
-	requires com.aoapps.servlet.util; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
-	requires com.aoapps.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
-	requires com.aoapps.web.resources.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
-	requires javax.servlet.api; // <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
-	requires javax.servlet.jsp.api; // <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
-	requires com.semanticcms.core.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
-	requires com.semanticcms.core.renderer.html; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId>
-	requires com.semanticcms.core.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
-	requires taglibs.standard.spec; // <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
-	// Transitive
-	requires com.semanticcms.core.renderer; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer</artifactId>
+  exports com.semanticcms.core.theme.base;
+  // Direct
+  requires com.aoapps.encoding.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
+  requires com.aoapps.net.pathspace; // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
+  requires com.aoapps.net.types; // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
+  requires com.aoapps.servlet.firewall.api; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
+  requires com.aoapps.servlet.firewall.pathspace; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
+  requires com.aoapps.servlet.firewall.rules; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
+  requires com.aoapps.servlet.util; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
+  requires com.aoapps.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
+  requires com.aoapps.web.resources.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
+  requires javax.servlet.api; // <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId>
+  requires javax.servlet.jsp.api; // <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
+  requires com.semanticcms.core.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
+  requires com.semanticcms.core.renderer.html; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer-html</artifactId>
+  requires com.semanticcms.core.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
+  requires taglibs.standard.spec; // <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
+  // Transitive
+  requires com.semanticcms.core.renderer; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-renderer</artifactId>
 }

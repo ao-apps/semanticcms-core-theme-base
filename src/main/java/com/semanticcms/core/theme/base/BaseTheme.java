@@ -55,105 +55,105 @@ import javax.servlet.jsp.SkipPageException;
  */
 public final class BaseTheme extends Theme {
 
-	private static final String NAME = HtmlRenderer.DEFAULT_THEME_NAME;
+  private static final String NAME = HtmlRenderer.DEFAULT_THEME_NAME;
 
-	private static final String PREFIX = "/semanticcms-core-theme-base";
+  private static final String PREFIX = "/semanticcms-core-theme-base";
 
-	private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
+  private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
-	@WebListener("Registers the \"" + NAME + "\" theme in HtmlRenderer.")
-	public static class Initializer implements ServletContextListener {
+  @WebListener("Registers the \"" + NAME + "\" theme in HtmlRenderer.")
+  public static class Initializer implements ServletContextListener {
 
-		@Override
-		public void contextInitialized(ServletContextEvent event) {
-			ServletContext servletContext = event.getServletContext();
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+      ServletContext servletContext = event.getServletContext();
 
-			HtmlRenderer.getInstance(servletContext).addTheme(new BaseTheme());
+      HtmlRenderer.getInstance(servletContext).addTheme(new BaseTheme());
 
-			// TODO: Move to /META-INF/semanticcms-servlet-space.xml?
-			// TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
-			FirewallPathSpace.getInstance(servletContext).add(
-				FirewallComponent.newInstance(
-					Prefix.valueOf(PREFIX + Prefix.WILDCARD_SUFFIX),
-					// Block direct access via request
-					request.dispatcherType.isRequest(response.sendError.NOT_FOUND),
-					// Only allow *.inc.jsp via include
-					and(
-						request.dispatcherType.isInclude,
-						pathMatch.path.endsWith(".inc.jsp"),
-						chain.doFilter
-					),
-					// *.jspx as forward only, but not including *.inc.jspx
-					request.dispatcherType.isForward(
-						pathMatch.path.endsWith(".jspx",
-							pathMatch.path.endsWith(".inc.jspx", response.sendError.FORBIDDEN),
-							chain.doFilter
-						)
-					),
-					// TODO: Drop everything else, all other dispatchers?
-					response.sendError.FORBIDDEN // TODO: Use message overload
-				),
-				// TODO: method, dispatcher, and stuff like in Documents/TODO/ao-servlet-firewall.xml
-				// TODO: Support per servlet-space "policy", which will be the rules applied when no rules match
-				// TODO: Support per servlet-space "pre" rules?
-				// TODO: Support dynamic addition of rules to servlet-space?
-				FirewallComponent.newInstance(
-					Prefix.valueOf(PREFIX + Path.SEPARATOR_CHAR + "styles" + Prefix.WILDCARD_SUFFIX),
-					request.dispatcherType.isRequest(
-						// TODO: *.css matching is overkill here, but this is just testing programming style
-						pathMatch.path.endsWith(".css",
-							// TODO: To be most technically correct, should we return 404 before this 405 when the resource does not exist?  Make a rule to check if exists?
-							// TODO: Would it be worth the overhead?
-							request.method.constrain(request.method.GET),
-							// TODO: restrict parameters for canonicalization? (this is overkill, but just testing how can use rules)
-							chain.doFilter // TODO: Dispatch to LastModified servlet here instead of relying on applications to have registered it?
-						),
-						// 404 everything else on "REQUEST" dispatcher
-						response.sendError.NOT_FOUND
-					),
-					// TODO: Drop everything else, all other dispatchers?
-					response.sendError.FORBIDDEN // TODO: Use message overload
-				)
-			);
-		}
+      // TODO: Move to /META-INF/semanticcms-servlet-space.xml?
+      // TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
+      FirewallPathSpace.getInstance(servletContext).add(
+        FirewallComponent.newInstance(
+          Prefix.valueOf(PREFIX + Prefix.WILDCARD_SUFFIX),
+          // Block direct access via request
+          request.dispatcherType.isRequest(response.sendError.NOT_FOUND),
+          // Only allow *.inc.jsp via include
+          and(
+            request.dispatcherType.isInclude,
+            pathMatch.path.endsWith(".inc.jsp"),
+            chain.doFilter
+          ),
+          // *.jspx as forward only, but not including *.inc.jspx
+          request.dispatcherType.isForward(
+            pathMatch.path.endsWith(".jspx",
+              pathMatch.path.endsWith(".inc.jspx", response.sendError.FORBIDDEN),
+              chain.doFilter
+            )
+          ),
+          // TODO: Drop everything else, all other dispatchers?
+          response.sendError.FORBIDDEN // TODO: Use message overload
+        ),
+        // TODO: method, dispatcher, and stuff like in Documents/TODO/ao-servlet-firewall.xml
+        // TODO: Support per servlet-space "policy", which will be the rules applied when no rules match
+        // TODO: Support per servlet-space "pre" rules?
+        // TODO: Support dynamic addition of rules to servlet-space?
+        FirewallComponent.newInstance(
+          Prefix.valueOf(PREFIX + Path.SEPARATOR_CHAR + "styles" + Prefix.WILDCARD_SUFFIX),
+          request.dispatcherType.isRequest(
+            // TODO: *.css matching is overkill here, but this is just testing programming style
+            pathMatch.path.endsWith(".css",
+              // TODO: To be most technically correct, should we return 404 before this 405 when the resource does not exist?  Make a rule to check if exists?
+              // TODO: Would it be worth the overhead?
+              request.method.constrain(request.method.GET),
+              // TODO: restrict parameters for canonicalization? (this is overkill, but just testing how can use rules)
+              chain.doFilter // TODO: Dispatch to LastModified servlet here instead of relying on applications to have registered it?
+            ),
+            // 404 everything else on "REQUEST" dispatcher
+            response.sendError.NOT_FOUND
+          ),
+          // TODO: Drop everything else, all other dispatchers?
+          response.sendError.FORBIDDEN // TODO: Use message overload
+        )
+      );
+    }
 
-		@Override
-		public void contextDestroyed(ServletContextEvent event) {
-			// Do nothing
-		}
-	}
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+      // Do nothing
+    }
+  }
 
-	private BaseTheme() {
-		// Do nothing
-	}
+  private BaseTheme() {
+    // Do nothing
+  }
 
-	@Override
-	public String getDisplay() {
-		return "SemanticCMS Base";
-	}
+  @Override
+  public String getDisplay() {
+    return "SemanticCMS Base";
+  }
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
+  @Override
+  public String getName() {
+    return NAME;
+  }
 
-	@Override
-	public void doTheme(
-		ServletContext servletContext,
-		HttpServletRequest request,
-		HttpServletResponse response,
-		View view,
-		Page page
-	) throws ServletException, IOException, SkipPageException {
-		Map<String, Object> args = new LinkedHashMap<>();
-		args.put("view", view);
-		args.put("page", page);
-		Dispatcher.forward(
-			servletContext,
-			JSPX_TARGET,
-			request,
-			response,
-			args
-		);
-	}
+  @Override
+  public void doTheme(
+    ServletContext servletContext,
+    HttpServletRequest request,
+    HttpServletResponse response,
+    View view,
+    Page page
+  ) throws ServletException, IOException, SkipPageException {
+    Map<String, Object> args = new LinkedHashMap<>();
+    args.put("view", view);
+    args.put("page", page);
+    Dispatcher.forward(
+      servletContext,
+      JSPX_TARGET,
+      request,
+      response,
+      args
+    );
+  }
 }
