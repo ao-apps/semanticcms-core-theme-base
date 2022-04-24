@@ -82,21 +82,21 @@ public final class BaseTheme extends Theme {
 
   @Override
   public void doTheme(
-    ServletContext servletContext,
-    HttpServletRequest request,
-    HttpServletResponse response,
-    View view,
-    Page page
+      ServletContext servletContext,
+      HttpServletRequest request,
+      HttpServletResponse response,
+      View view,
+      Page page
   ) throws ServletException, IOException, SkipPageException {
     Map<String, Object> args = new LinkedHashMap<>();
     args.put("view", view);
     args.put("page", page);
     Dispatcher.forward(
-      servletContext,
-      JSPX_TARGET,
-      request,
-      response,
-      args
+        servletContext,
+        JSPX_TARGET,
+        request,
+        response,
+        args
     );
   }
 }
