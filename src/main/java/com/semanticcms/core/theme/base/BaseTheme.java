@@ -73,47 +73,47 @@ public final class BaseTheme extends Theme {
       // TODO: Move to /META-INF/semanticcms-servlet-space.xml?
       // TODO: Allow semanticcms-servlet-space.xml anywhere in the directory structure?
       FirewallPathSpace.getInstance(servletContext).add(
-        FirewallComponent.newInstance(
-          Prefix.valueOf(PREFIX + Prefix.WILDCARD_SUFFIX),
-          // Block direct access via request
-          request.dispatcherType.isRequest(response.sendError.NOT_FOUND),
-          // Only allow *.inc.jsp via include
-          and(
-            request.dispatcherType.isInclude,
-            pathMatch.path.endsWith(".inc.jsp"),
-            chain.doFilter
+          FirewallComponent.newInstance(
+              Prefix.valueOf(PREFIX + Prefix.WILDCARD_SUFFIX),
+              // Block direct access via request
+              request.dispatcherType.isRequest(response.sendError.NOT_FOUND),
+              // Only allow *.inc.jsp via include
+              and(
+                  request.dispatcherType.isInclude,
+                  pathMatch.path.endsWith(".inc.jsp"),
+                  chain.doFilter
+              ),
+              // *.jspx as forward only, but not including *.inc.jspx
+              request.dispatcherType.isForward(
+                  pathMatch.path.endsWith(".jspx",
+                      pathMatch.path.endsWith(".inc.jspx", response.sendError.FORBIDDEN),
+                      chain.doFilter
+                  )
+              ),
+              // TODO: Drop everything else, all other dispatchers?
+              response.sendError.FORBIDDEN // TODO: Use message overload
           ),
-          // *.jspx as forward only, but not including *.inc.jspx
-          request.dispatcherType.isForward(
-            pathMatch.path.endsWith(".jspx",
-              pathMatch.path.endsWith(".inc.jspx", response.sendError.FORBIDDEN),
-              chain.doFilter
-            )
-          ),
-          // TODO: Drop everything else, all other dispatchers?
-          response.sendError.FORBIDDEN // TODO: Use message overload
-        ),
-        // TODO: method, dispatcher, and stuff like in Documents/TODO/ao-servlet-firewall.xml
-        // TODO: Support per servlet-space "policy", which will be the rules applied when no rules match
-        // TODO: Support per servlet-space "pre" rules?
-        // TODO: Support dynamic addition of rules to servlet-space?
-        FirewallComponent.newInstance(
-          Prefix.valueOf(PREFIX + Path.SEPARATOR_CHAR + "styles" + Prefix.WILDCARD_SUFFIX),
-          request.dispatcherType.isRequest(
-            // TODO: *.css matching is overkill here, but this is just testing programming style
-            pathMatch.path.endsWith(".css",
-              // TODO: To be most technically correct, should we return 404 before this 405 when the resource does not exist?  Make a rule to check if exists?
-              // TODO: Would it be worth the overhead?
-              request.method.constrain(request.method.GET),
-              // TODO: restrict parameters for canonicalization? (this is overkill, but just testing how can use rules)
-              chain.doFilter // TODO: Dispatch to LastModified servlet here instead of relying on applications to have registered it?
-            ),
-            // 404 everything else on "REQUEST" dispatcher
-            response.sendError.NOT_FOUND
-          ),
-          // TODO: Drop everything else, all other dispatchers?
-          response.sendError.FORBIDDEN // TODO: Use message overload
-        )
+          // TODO: method, dispatcher, and stuff like in Documents/TODO/ao-servlet-firewall.xml
+          // TODO: Support per servlet-space "policy", which will be the rules applied when no rules match
+          // TODO: Support per servlet-space "pre" rules?
+          // TODO: Support dynamic addition of rules to servlet-space?
+          FirewallComponent.newInstance(
+              Prefix.valueOf(PREFIX + Path.SEPARATOR_CHAR + "styles" + Prefix.WILDCARD_SUFFIX),
+              request.dispatcherType.isRequest(
+                  // TODO: *.css matching is overkill here, but this is just testing programming style
+                  pathMatch.path.endsWith(".css",
+                      // TODO: To be most technically correct, should we return 404 before this 405 when the resource does not exist?  Make a rule to check if exists?
+                      // TODO: Would it be worth the overhead?
+                      request.method.constrain(request.method.GET),
+                      // TODO: restrict parameters for canonicalization? (this is overkill, but just testing how can use rules)
+                      chain.doFilter // TODO: Dispatch to LastModified servlet here instead of relying on applications to have registered it?
+                  ),
+                  // 404 everything else on "REQUEST" dispatcher
+                  response.sendError.NOT_FOUND
+              ),
+              // TODO: Drop everything else, all other dispatchers?
+              response.sendError.FORBIDDEN // TODO: Use message overload
+          )
       );
     }
 
@@ -139,21 +139,21 @@ public final class BaseTheme extends Theme {
 
   @Override
   public void doTheme(
-    ServletContext servletContext,
-    HttpServletRequest request,
-    HttpServletResponse response,
-    View view,
-    Page page
+      ServletContext servletContext,
+      HttpServletRequest request,
+      HttpServletResponse response,
+      View view,
+      Page page
   ) throws ServletException, IOException, SkipPageException {
     Map<String, Object> args = new LinkedHashMap<>();
     args.put("view", view);
     args.put("page", page);
     Dispatcher.forward(
-      servletContext,
-      JSPX_TARGET,
-      request,
-      response,
-      args
+        servletContext,
+        JSPX_TARGET,
+        request,
+        response,
+        args
     );
   }
 }
