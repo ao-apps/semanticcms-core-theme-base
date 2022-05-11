@@ -23,12 +23,13 @@
 
 package com.semanticcms.core.theme.base;
 
+import static com.aoapps.servlet.firewall.rules.Rules.and;
+
 import com.aoapps.net.Path;
 import com.aoapps.net.pathspace.Prefix;
 import com.aoapps.servlet.firewall.pathspace.FirewallComponent;
 import com.aoapps.servlet.firewall.pathspace.FirewallPathSpace;
 import com.aoapps.servlet.firewall.pathspace.Rules.pathMatch;
-import static com.aoapps.servlet.firewall.rules.Rules.and;
 import com.aoapps.servlet.firewall.rules.Rules.chain;
 import com.aoapps.servlet.firewall.rules.Rules.request;
 import com.aoapps.servlet.firewall.rules.Rules.response;
@@ -61,6 +62,9 @@ public final class BaseTheme extends Theme {
 
   private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
+  /**
+   * Registers the "{@link #NAME}" theme in {@link HtmlRenderer}.
+   */
   @WebListener("Registers the \"" + NAME + "\" theme in HtmlRenderer.")
   public static class Initializer implements ServletContextListener {
 
