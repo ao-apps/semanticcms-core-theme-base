@@ -40,7 +40,7 @@ Arguments:
   <jsp:directive.page session="false" />
   <jsp:output omit-xml-declaration="true" />
   <!-- Capture any referenced page that is in an accessible book -->
-  <c:if test="${!empty author.page and !applicationScope.semanticCMS.missingBooks.contains(author.bookName)}">
+  <c:if test="${!empty author.page and !applicationScope.semanticCms.missingBooks.contains(author.bookName)}">
     <c:set var="capturedPage" value="${core:capturePageInBook(author.bookName, author.page, 'page')}" />
   </c:if>
   <!-- meta author -->
