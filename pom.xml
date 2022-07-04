@@ -46,7 +46,7 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
 
-  <name>SemanticCMS Core Theme Base²</name>
+  <name>SemanticCMS Core Theme Base</name>
   <url>https://semanticcms.com/core/theme-base/</url>
   <description>Base SemanticCMS theme to simplify the implementation of other themes.</description>
   <inceptionYear>2013</inceptionYear>
