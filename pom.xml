@@ -39,10 +39,6 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
 / <a target="${javadoc.target}" href="https://semanticcms.com/core/">Core</a>
 / <a target="${javadoc.target}" href="${project.url}">Theme Base</a>]]></javadoc.breadcrumbs>
     <description.html><![CDATA[Base <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> theme to simplify the implementation of other themes.]]></description.html>
-    <!-- SonarQube -->
-    <sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-    <sonar.organization>ao-apps</sonar.organization>
-    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <!-- TODO: Implement tests -->
     <sonar.coverage.exclusions>**.*</sonar.coverage.exclusions>
   </properties>
