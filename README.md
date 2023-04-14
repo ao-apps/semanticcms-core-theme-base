@@ -23,7 +23,7 @@ Base [SemanticCMS](https://github.com/ao-apps/semanticcms) theme to simplify the
 * [Project Home](https://semanticcms.com/core/theme-base/)
 * [Changelog](https://semanticcms.com/core/theme-base/changelog)
 * [API Docs](https://semanticcms.com/core/theme-base/apidocs/)
-* [Maven Central Repository](https://central.sonatype.com/search?namespace=com.semanticcms&q=a%3Asemanticcms-core-theme-base)
+* [Maven Central Repository](https://central.sonatype.com/artifact/com.semanticcms/semanticcms-core-theme-base)
 * [GitHub](https://github.com/ao-apps/semanticcms-core-theme-base)
 
 ## Contact Us
