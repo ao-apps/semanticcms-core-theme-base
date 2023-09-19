@@ -41,6 +41,9 @@ along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licens
     <documented.artifactId>semanticcms-core-theme-base</documented.artifactId>
     <documented.name>SemanticCMS Core Theme Base</documented.name>
     <documented.description>Base SemanticCMS theme to simplify the implementation of other themes.</documented.description>
+    <javadoc.breadcrumbs><![CDATA[<a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a>
+/ <a target="${javadoc.target}" href="https://semanticcms.com/core/">Core</a>
+/ <a target="${javadoc.target}" href="${project.url}">Theme Base</a>]]></javadoc.breadcrumbs>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
     <!-- SonarQube -->
