@@ -1,6 +1,6 @@
 /*
  * semanticcms-core-theme-base - Base SemanticCMS theme to simplify the implementation of other themes.
- * Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2025, 2026  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -28,17 +28,17 @@ import com.semanticcms.core.model.Page;
 import com.semanticcms.core.servlet.SemanticCMS;
 import com.semanticcms.core.servlet.Theme;
 import com.semanticcms.core.servlet.View;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.jsp.SkipPageException;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.SkipPageException;
 
 /**
  * An absolutely minimal base theme, meets the technical requirements but offers
