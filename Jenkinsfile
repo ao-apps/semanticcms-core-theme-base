@@ -31,9 +31,9 @@ def upstreamProjects = [
   '../../oss/encoding-taglib', // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
   '../../oss/net-path-space', // <groupId>com.aoapps</groupId><artifactId>ao-net-path-space</artifactId>
   '../../oss/net-types', // <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId>
-  '../../oss/servlet-firewall-javaee/api', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
-  '../../oss/servlet-firewall-javaee/path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
-  '../../oss/servlet-firewall-javaee/rules', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
+  '../../oss/servlet-firewall/api', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-api</artifactId>
+  '../../oss/servlet-firewall/path-space', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-path-space</artifactId>
+  '../../oss/servlet-firewall/rules', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-rules</artifactId>
   '../../oss/servlet-util', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
   '../../oss/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId>
   '../../oss/web-resources/taglib', // <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId>
@@ -45,7 +45,7 @@ def upstreamProjects = [
   'taglib', // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
 
   // Runtime Direct
-  '../../oss/servlet-firewall-javaee/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
+  '../../oss/servlet-firewall/webjars', // <groupId>com.aoapps</groupId><artifactId>ao-servlet-firewall-webjars</artifactId>
   // No Jenkins: <groupId>org.glassfish.web</groupId><artifactId>jakarta.servlet.jsp.jstl</artifactId>
 
   // BOM
