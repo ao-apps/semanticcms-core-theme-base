@@ -63,7 +63,7 @@ public final class BaseTheme extends Theme {
   private static final String JSPX_TARGET = PREFIX + "/theme.jspx";
 
   /**
-   * Registers the "{@link #NAME}" theme in {@link HtmlRenderer}.
+   * Registers the "{@link BaseTheme#NAME}" theme in {@link HtmlRenderer}.
    */
   @WebListener("Registers the \"" + NAME + "\" theme in HtmlRenderer.")
   public static class Initializer implements ServletContextListener {
