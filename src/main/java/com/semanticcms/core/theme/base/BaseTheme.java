@@ -53,7 +53,7 @@ public final class BaseTheme extends Theme {
   private static final String JSPX_TARGET = PREFIX + "/theme.inc.jspx";
 
   /**
-   * Registers the "{@link #NAME}" theme in {@link SemanticCMS}.
+   * Registers the "{@link BaseTheme#NAME}" theme in {@link SemanticCMS}.
    */
   @WebListener("Registers the \"" + NAME + "\" theme in SemanticCMS.")
   public static class Initializer implements ServletContextListener {
