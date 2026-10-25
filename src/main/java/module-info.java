@@ -21,7 +21,6 @@
  * along with semanticcms-core-theme-base.  If not, see <https://www.gnu.org/licenses/>.
  */
 module com.semanticcms.core.theme.base {
-  exports com.semanticcms.core.theme.base;
   // Direct
   requires com.aoapps.encoding.taglib; // <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId>
   requires com.aoapps.servlet.util; // <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId>
@@ -33,4 +32,6 @@ module com.semanticcms.core.theme.base {
   requires com.semanticcms.core.model; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId>
   requires com.semanticcms.core.servlet; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId>
   requires com.semanticcms.core.taglib; // <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
+
+  exports com.semanticcms.core.theme.base;
 }
